@@ -15,14 +15,14 @@ Run inference on a single image:
 
 ```bash
 tbi-lens infer \
-  --config configs/infer.yaml \
   --image /path/to/image.nii.gz \
-  --ckpt /path/to/model.pt \
+  --bundle /path/to/bundle \
   --outdir /path/to/output
 ```
 
 Outputs:
 - `*_pred.nii.gz` prediction mask
-- `*_metrics.csv` with `case_id,dice,gt_volume_ml,pred_volume_ml`
 
-Optional: set `ground_truth` in `configs/infer.yaml` to compute Dice and GT volume.
+Pretrained weights are auto-downloaded from Hugging Face into the bundle
+`model/` directory when missing. Set `TBI_LENS_HF_REPO` (required) and
+`TBI_LENS_HF_FILENAME` (optional, default `model.pt`) before running.

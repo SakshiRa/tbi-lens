@@ -30,4 +30,11 @@ post:
   activation: softmax
   argmax: true
 
+bundle:
+  n_best: 1
+  mode: mean
+  sigmoid: false
+  output_dtype: uint8
+  resample: false
+
 ground_truth: null
